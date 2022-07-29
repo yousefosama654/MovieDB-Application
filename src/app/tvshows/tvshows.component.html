@@ -1,0 +1,25 @@
+<div class="row m-auto w-50 my-5">
+  <input
+    type="text"
+    [(ngModel)]="term"
+    class="form-control"
+    placeholder="Search"
+  />
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-2 my-3" *ngFor="let item of tvlist | search: term:'tv'">
+    <div class="item" routerLink="/details/{{ item.id }}/tv">
+      <img [src]="baseImgUrl + item.poster_path" class="w-100" alt="" />
+      <h4 class="my-3 h6">{{ item.name }}</h4>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center my-5 align-items-center">
+  <ul class="pagination pagination-lg">
+    <li *ngFor="let page of pages" (click)="getpage(page)" class="page-item">
+      <a class="page-link">{{ page }}</a>
+    </li>
+  </ul>
+</div>
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>

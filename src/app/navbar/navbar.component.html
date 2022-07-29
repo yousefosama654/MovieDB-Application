@@ -1,0 +1,54 @@
+<!-- <div *ngIf="alertlogin" class="alert alert-danger position-absolute">sadas</div> -->
+<nav class="navbar navbar-expand-lg ">
+  <div class="container-fluid">
+    <a class="navbar-brand" (click)="gotohome()">NetFlix</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a *ngIf="islogin" class="nav-link" routerLink="home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="islogin" class="nav-link" routerLink="movies">Movies</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="islogin" class="nav-link" routerLink="tvshows">TVShows</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="islogin" class="nav-link" routerLink="people">People</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="islogin" class="nav-link" routerLink="networks">Networks</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <div class="socaial-icons">
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-spotify"></i>
+          <i class="fab fa-instagram"></i>
+        </div>
+        <li class="nav-item">
+          <a *ngIf="!islogin" class="nav-link" routerLink="login">login</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="!islogin" class="nav-link" routerLink="register">register</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="islogin" class="nav-link" (click)="logout()" routerLink="login">logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+

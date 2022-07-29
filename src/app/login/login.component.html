@@ -1,0 +1,44 @@
+<div class="register-form py-5 w-75 m-auto">
+  <div *ngIf="errormessage" class="alert alert-danger">{{errormessage}}</div>
+    <h1 class="text-capitalize">login form</h1>
+    <form [formGroup]="loginform" (ngSubmit)="submitform()">
+      <!-- relate this form to the typescript -->
+      <!-- formgroup is a directive -->
+      <!-- ngsubmit is the eventbinding -->
+      <div class="my-3">
+        <label> Email:</label>
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control my-3"
+          placeholder="example@gmail.com"
+        />
+        <div *ngIf="email?.invalid && email?.touched " class="text-danger">
+          <p class="text-danger" *ngIf="email?.errors?.required">the email is required</p>
+          <p class="text-danger" *ngIf="email?.errors?.email">this should be an email</p>
+        </div>
+      </div>
+      <div class="my-3">
+        <label> Password :</label>
+        <input
+          formControlName="password"
+          type="password"
+          class="form-control my-3"
+          placeholder="*******"
+        />
+        <div *ngIf="password?.invalid && password?.touched " class="text-danger">
+          <p class="text-danger" *ngIf="password?.errors?.required">the password is required</p>
+          <p class="text-danger" *ngIf="password?.errors?.pattern">the pattern is wrong</p>
+        </div>
+      </div>
+      <button
+        [disabled]="loginform.invalid"
+        type="submit"
+        class="btn btn-outline-info"
+      >
+      <span *ngIf="isloading"><i class="fas fa-spinner fa-spin"></i></span>
+      <span *ngIf="!isloading">Submit</span>
+      </button>
+    </form>
+  </div>
+  

@@ -1,0 +1,31 @@
+nav {
+  background-color: rgba(36, 186, 239, 0.6);
+}
+
+.socaial-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+i {
+  margin: 0px 10px;
+  font-size: large;
+  text-align: center;
+  cursor: pointer;
+}
+/* .fab
+{
+    transition: all .3s ease-in-out;
+
+}
+.fab:hover
+{
+    transform: rotateX(360) !important;
+} */
+.alert {
+  inset: 0px;
+  z-index: 9999;
+}
+.navbar-brand:hover {
+  cursor: pointer;
+}

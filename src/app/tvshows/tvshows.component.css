@@ -1,0 +1,12 @@
+.page-link {
+    background-color: transparent !important;
+  }
+  .page-link:hover {
+    background-color: rgba(36, 186, 239, 0.6) !important;
+    cursor: pointer;
+  }
+  input {
+    background-color: transparent !important;
+    color: #fff !important;
+  }
+  

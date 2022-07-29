@@ -1,0 +1,39 @@
+<div class="row my-5">
+  <div class="col-md-4 welcome">
+    <div class="brdr w-25"></div>
+    <h2 class="text-capitalize">trending</h2>
+    <h2 class="text-capitalize">movies</h2>
+    <h2 class="text-capitalize">to watch now</h2>
+    <span class="text-capitalize">most movies watched by now</span>
+    <div class="brdr w-100"></div>
+  </div>
+  <div class="col-md-2 my-3" *ngFor="let item of movieslist">
+    <div class="item" routerLink="/details/{{item.id}}/movie">
+      <!-- when you click at the div you will go to the details -->
+      <img [src]="baseImgUrl + item.poster_path" class="w-100" alt="" />
+      <h4 class="my-3 h6">{{ item.title }}</h4>
+    </div>
+    <p class="text-center text-truncate text-secondary">{{item.overview}}</p>    
+      <p  class="text-center see-more text-secondary text-capitalize">see more</p>
+  </div>
+</div>
+<div class="row my-5">
+  <div class="col-md-4 welcome">
+    <div class="brdr w-25"></div>
+    <h2 class="text-capitalize">trending</h2>
+    <h2 class="text-capitalize">seires</h2>
+    <h2 class="text-capitalize">to watch now</h2>
+    <span class="text-capitalize">most series watched by now</span>
+    <div class="brdr w-100"></div>
+  </div>
+  <div class="col-md-2 my-3" *ngFor="let item of tvlist">
+    <div class="item" routerLink="/details/{{item.id}}/tv">
+      <!-- when you click at the div you will go to the details -->
+      <img [src]="baseImgUrl + item.poster_path" class="w-100" alt="" />
+      <h4 class="my-3 h6">{{ item.name }}</h4>
+      <p [class.text-truncate]="test"  class="text-center text-secondary text-truncate">{{item.overview}}</p> 
+    </div>
+    <p (click)="testy()" class="text-center see-more text-secondary text-capitalize">see more</p>
+  </div>
+</div>
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>

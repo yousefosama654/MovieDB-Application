@@ -1,0 +1,8 @@
+.already {
+  width: fit-content;
+}
+.already:hover
+{
+    text-decoration: underline;
+    cursor: pointer;
+}

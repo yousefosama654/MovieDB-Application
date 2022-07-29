@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap");
+body {
+  background-color: #131722;
+  font-family: "Montserrat Alternates", sans-serif;
+  color: #fff;
+}
+a,
+a:hover {
+  color: #fff !important;
+}
+.brdr {
+  height: 2px;
+  background-color: #a8a8a83d;
+  margin: 10px 0px;
+}
+.btn:hover {
+  cursor: pointer !important;
+}
+img:hover
+{
+cursor: pointer;
+}
+.item h4:hover
+{
+text-decoration: underline;
+cursor: pointer;
+
+}

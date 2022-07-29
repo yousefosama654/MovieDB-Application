@@ -1,0 +1,5 @@
+.see-more:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #fff !important;
+}
