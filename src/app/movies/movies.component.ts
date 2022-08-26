@@ -11,16 +11,17 @@ export class MoviesComponent implements OnInit {
   movielist: Array<any> = [];
   term: string = '';
   baseImgUrl: string = 'https://image.tmdb.org/t/p/w500/';
-  pages: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  page:number=1;
+  totallength:number=200;
   ngOnInit(): void {
     this._spinner.show();
-    this.getpage(1);
+    this.getpage(this.page);
   }
   gettrendingmovies(pagenumber: number) {
     this._TrendingService
       .discover('movie', pagenumber)
       .subscribe((response) => {
-        this.movielist = response.results;
+        this.movielist = response.results;     
       });
       setTimeout(() => {
         this._spinner.hide();

@@ -5,14 +5,18 @@ import jwtDecode from 'jwt-decode';
 import { JsonPipe } from '@angular/common';
 import { Router } from '@angular/router';
 
-
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   // islogin: any = new BehaviorSubject(false);
   userdata: any = new BehaviorSubject(null);
-  constructor(private _http: HttpClient,private _Router:Router) {}
+  constructor(private _http: HttpClient, private _Router: Router) {
+    if (localStorage.getItem('usertoken')) {
+      this.saveuserdata();
+      this._Router.navigate(['/home']);
+    }
+  }
   signup(registerdata: any): Observable<any> {
     return this._http.post(
       'https://route-egypt-api.herokuapp.com/signup',
@@ -21,13 +25,12 @@ export class AuthService {
     //form data is the value of the form
   }
   saveuserdata() {
-    let encodedtoken = JSON.stringify(localStorage.getItem('usertoken'))
+    let encodedtoken = JSON.stringify(localStorage.getItem('usertoken'));
     let decodetoken = jwtDecode(encodedtoken);
-    this.userdata.next( decodetoken);
+    this.userdata.next(decodetoken);
   }
-  signout()
-  {
-    localStorage.removeItem('usertoken')
+  signout() {
+    localStorage.removeItem('usertoken');
     this.userdata.next(null);
     this._Router.navigate(['/login']);
   }

@@ -21,7 +21,11 @@ export class GuardGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this._AuthService.userdata.getValue() != null) return true;
+    if (this._AuthService.userdata.getValue() != null) 
+    {
+      // this._Router.navigate(['/home']);
+      return true;
+    }
     else {
       this._Router.navigate(['/login']);
       return false;

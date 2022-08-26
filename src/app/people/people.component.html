@@ -1,1 +1,21 @@
-<p>people works!</p>
+<div class="row m-auto w-50 my-5">
+    <input
+      type="text"
+      [(ngModel)]="term"
+      class="form-control"
+      placeholder="Search"
+    />
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-2 my-3" *ngFor="let item of peoplelist|search:term:'people'| paginate: { 
+    itemsPerPage: 20,
+    currentPage: page,
+    totalItems: totallength }">
+      <div class="item" routerLink="/details/{{ item.id }}/person">
+        <img [src]="baseImgUrl + item.profile_path" onerror="this.src='./assets/image-not-found-png-4-Transparent-Images.png'" class="w-100" alt="" />
+        <h4 class="my-3 h6">{{ item.name }}</h4>
+      </div>
+    </div>
+  </div>
+<pagination-controls  (click)="getpeople(page)" class="my-pagination text-center"  (pageChange)="page = $event"></pagination-controls>
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>

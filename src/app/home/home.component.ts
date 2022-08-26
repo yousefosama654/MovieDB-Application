@@ -10,42 +10,19 @@ export class HomeComponent implements OnInit {
   movieslist: Array<any> = [];
   tvlist: Array<any> = [];
   baseImgUrl: string = 'https://image.tmdb.org/t/p/w500/';
-  seemore_clicked = false;
-  test=true;
-  seecontent: string = 'see more';
-  testy()
-  {
-    this.test=!this.test;
-  }
-  seemore(item:number,type:String) {
-    if(type=='series')
-    {
-      for(let  x of this.tvlist)
-      {
-        if(x.id==item)
-        {
-          let total=x.overview;
-          if (this.seemore_clicked) {
-            this.seemore_clicked = false;
-            x.overview=total.split(' ').slice(0,10).join(' ');
-            // this.seecontent="see less";
-          } else {
-            this.seemore_clicked = true;
-            // this.seecontent="see more";
-            x.overview=total;
-          }
-        }
-      }
-    }
-    else
-    {
-      for(let  x of this.tvlist)
-      {
-        if(x==item)
-        {
-          x.overview=x.overview.split(' ').slice(0,10).join(' ');
-        }
-      }
+  seemore(item: number, event: any) {
+    if (
+      document.getElementById(`${item}`)?.classList.contains('text-truncate')
+    ) {
+      (document.getElementById(`${item}`) as HTMLElement).classList.remove(
+        'text-truncate'
+      );
+      event.target.innerText = 'see less';
+    } else {
+      (document.getElementById(`${item}`) as HTMLElement).classList.add(
+        'text-truncate'
+      );
+      event.target.innerText = 'see more';
     }
   }
   constructor(

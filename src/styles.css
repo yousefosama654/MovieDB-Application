@@ -4,6 +4,10 @@ body {
   background-color: #131722;
   font-family: "Montserrat Alternates", sans-serif;
   color: #fff;
+  scroll-behavior: smooth;
+}
+.my_color {
+  background-color: #131722;
 }
 a,
 a:hover {
@@ -17,13 +21,10 @@ a:hover {
 .btn:hover {
   cursor: pointer !important;
 }
-img:hover
-{
-cursor: pointer;
+img:hover {
+  cursor: pointer;
 }
-.item h4:hover
-{
-text-decoration: underline;
-cursor: pointer;
-
+.item h4:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }

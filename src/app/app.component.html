@@ -1,5 +1,7 @@
 <app-navbar></app-navbar>
-<div class="container">
-  <router-outlet></router-outlet>
+<div class="container position-relative">
+  <router-outlet>
+  </router-outlet>
+  <button [class]="mood=='entrance'?'btnEntrance':'btnExit'" (click)="GoToTop()" (scroll)="displayButton()" [style.display]="button_disp?'block':'none'" class="back_to_top"><i class="fas fa-angle-double-up"></i></button>
 </div>
 <!-- the conecpt of (dry) don't repeat yourself -->

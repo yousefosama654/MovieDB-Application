@@ -1,7 +1,12 @@
 <!-- <div *ngIf="alertlogin" class="alert alert-danger position-absolute">sadas</div> -->
-<nav class="navbar navbar-expand-lg ">
+<nav class="navbar navbar-expand-lg" (scroll)="navbar_fixing()" [class.fixed-top]="fixed">
   <div class="container-fluid">
-    <a class="navbar-brand" (click)="gotohome()">NetFlix</a>
+    <a class="navbar-brand" (click)="gotohome()">
+      <i class="fa-solid fa-clapperboard"></i>
+     <span>
+      NetFlix
+     </span>
+    </a>
     <button
       class="navbar-toggler"
       type="button"

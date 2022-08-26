@@ -9,4 +9,8 @@
     background-color: transparent !important;
     color: #fff !important;
   }
-  
+  .my-pagination ::ng-deep .ngx-pagination .current {
+    background:  rgba(36, 186, 239, 0.8);
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }

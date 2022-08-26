@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -12,6 +12,15 @@ export class NavbarComponent implements OnInit {
   term:string="";
   islogin: boolean = false;
   alertlogin:boolean=false;
+  fixed:boolean=false;
+  @HostListener('window:scroll', ['$event'])
+  navbar_fixing()
+  {
+    if(window.scrollY>500)
+    this.fixed=true;
+    else
+    this.fixed=false;
+  }
   ngOnInit(): void {
     this.foo();
   }

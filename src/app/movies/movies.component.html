@@ -7,20 +7,15 @@
   />
 </div>
 <div class="row justify-content-center">
-  <div class="col-md-2 my-3" *ngFor="let item of movielist|search:term:'movie'">
-    <!-- the search pipe is not woking -->
+  <div class="col-md-2 my-3" *ngFor="let item of movielist|search:term:'movie'| paginate: { 
+  itemsPerPage: 20,
+  currentPage: page,
+  totalItems: totallength }">
     <div class="item" routerLink="/details/{{ item.id }}/movie">
       <img [src]="baseImgUrl + item.poster_path" class="w-100" alt="" />
       <h4 class="my-3 h6">{{ item.title }}</h4>
     </div>
   </div>
 </div>
-
-<div class="d-flex justify-content-center my-5 align-items-center">
-  <ul class="pagination pagination-lg">
-    <li *ngFor="let page of pages" (click)="getpage(page)" class="page-item">
-      <a class="page-link">{{ page }}</a>
-    </li>
-  </ul>
-</div>
+<pagination-controls  (click)="gettrendingmovies(page)" class="my-pagination text-center"  (pageChange)="page = $event"></pagination-controls>
 <ngx-spinner type="ball-scale-multiple"></ngx-spinner>

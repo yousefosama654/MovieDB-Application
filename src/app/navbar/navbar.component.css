@@ -13,19 +13,14 @@ i {
   text-align: center;
   cursor: pointer;
 }
-/* .fab
-{
-    transition: all .3s ease-in-out;
-
-}
-.fab:hover
-{
-    transform: rotateX(360) !important;
-} */
 .alert {
   inset: 0px;
   z-index: 9999;
 }
 .navbar-brand:hover {
   cursor: pointer;
+}
+.navbar-toggler:focus
+{
+  box-shadow: none;
 }

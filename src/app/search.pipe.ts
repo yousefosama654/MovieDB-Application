@@ -8,10 +8,15 @@ export class SearchPipe implements PipeTransform {
     return movielist.filter((movie) => 
       movie.name.toLowerCase().includes(term.toLowerCase())
     );
-    else
+    else if(type=='movie')
     return movielist.filter((movie) => 
     movie.title.toLowerCase().includes(term.toLowerCase())
   );
+  else
+  return movielist.filter((movie) => 
+  movie.name.toLowerCase().includes(term.toLowerCase())
+  // the case pf people
+);
   }
 }
 //the pipe is a function implements in the html code(powerful of angular )

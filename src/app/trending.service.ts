@@ -20,4 +20,9 @@ export class TrendingService {
   {
     return this._HttpClient.get(`https://api.themoviedb.org/3/discover/${mediaType}?api_key=f8c136a9c73363ea82f39f0dc6415c1e&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${pagenumber}&with_watch_monetization_types=flatrate`)
   }
+  getPeople(pageNumber: number): Observable<any> {
+    return this._HttpClient.get(
+      `https://api.themoviedb.org/3/person/popular?api_key=48d62e7452a1f1a5e6018217ac27c50a&language=en-US&page=${pageNumber}`
+    );
+  }
 }
