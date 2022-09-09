@@ -2,6 +2,9 @@
 <div class="container position-relative">
   <router-outlet>
   </router-outlet>
-  <button [class]="mood=='entrance'?'btnEntrance':'btnExit'" (click)="GoToTop()" (scroll)="displayButton()" [style.display]="button_disp?'block':'none'" class="back_to_top"><i class="fas fa-angle-double-up"></i></button>
+  <!-- <button [class]="mood=='entrance'?'btnEntrance':'btnExit'" (click)="GoToTop()" (scroll)="displayButton()" [style.display]="button_disp?'block':'none'" class="back_to_top text-center"><i class="fas fa-angle-double-up"></i></button> -->
+  <div id="progress"(scroll)="displayButton()"(click)="GoToTop()">
+    <span id="progress-value"><i class="fas fa-angle-double-up"></i></span>
+  </div>
 </div>
 <!-- the conecpt of (dry) don't repeat yourself -->

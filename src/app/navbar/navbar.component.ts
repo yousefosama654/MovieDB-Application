@@ -16,10 +16,15 @@ export class NavbarComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
   navbar_fixing()
   {
-    if(window.scrollY>500)
+    if(window.scrollY>document.getElementById("nav")!.scrollTop)
     this.fixed=true;
     else
     this.fixed=false;
+  }
+  another_click():void
+  {
+  if((document.getElementById("navbar-toggler") as HTMLElement).ariaExpanded=="true")
+   (document.getElementById("navbar-toggler") as HTMLElement).click();
   }
   ngOnInit(): void {
     this.foo();

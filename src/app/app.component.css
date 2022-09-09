@@ -15,37 +15,69 @@
   transition-timing-function: ease-in-out;
   transition-property: background-color, color;
 }
+
 .back_to_top:hover,
 .back_to_top:focus {
   background-color: #333;
   color: #fff;
 }
+
 .btnEntrance {
   animation-duration: 0.5s;
   animation-fill-mode: both;
   animation-name: btnEntrance;
 }
+
 .btnExit {
   animation-duration: 0.25s;
   animation-fill-mode: both;
   animation-name: btnExit;
 }
+
 @keyframes btnEntrance {
   from {
     opacity: 0;
     transform: translate3d(0, 100%, 0);
   }
+
   text-outline {
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 }
+
 @keyframes btnExit {
   from {
     opacity: 1;
   }
+
   text-outline {
     opacity: 0;
     transform: translate3d(0, 100%, 0);
   }
+}
+
+#progress {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  height: 70px;
+  width: 70px;
+  display: none;
+  place-items: center;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+#progress-value {
+  display: block;
+  height: calc(100% - 15px);
+  width: calc(100%  - 15px);
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  color: #001a2e;
 }

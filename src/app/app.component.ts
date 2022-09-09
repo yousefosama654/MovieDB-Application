@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { window } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,23 +11,29 @@ export class AppComponent {
   mood: string = 'exit';
   @HostListener('window:scroll', ['$event'])
   displayButton() {
-    if (window.scrollY > 300) {
-      if (this.mood == 'exit') {
-        this.mood = 'entrance';
-        this.button_disp = true;
-      }
-    } else {
-      if (this.mood == 'entrance') {
-        setTimeout( ()=> {
-          this.mood = 'exit';
-          this.button_disp = false;
-        } 
-        , 250);
-      }
+    let scrollProgress = document.getElementById("progress");
+    let progressValue = document.getElementById("progress-value");
+    let pos = document.documentElement.scrollTop;
+    //the document elemt is the whole window
+    let calcheight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrollvalue = Math.round((pos * 100) / calcheight);
+    if (pos > 100) {
+      if(scrollProgress?.style!= undefined)
+      scrollProgress.style.display = "grid";
+     }
+    else {
+      if(scrollProgress?.style!= undefined)
+      scrollProgress.style.display = "none";
     }
+    if(scrollProgress?.style!= undefined)
+      scrollProgress.style.background = `
+    conic-gradient(rgba(36, 186, 239, 0.6) ${scrollvalue}%,#d7d7d7 ${scrollvalue}%)
+      `;
+    
   }
   GoToTop() {
-    window.scrollTo(0, 0);
+    document.documentElement.scrollTo(0, 0);
+    //the document elemt is the whole window
   }
   title = 'app';
 }

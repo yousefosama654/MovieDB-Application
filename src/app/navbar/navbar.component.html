@@ -1,5 +1,5 @@
 <!-- <div *ngIf="alertlogin" class="alert alert-danger position-absolute">sadas</div> -->
-<nav class="navbar navbar-expand-lg" (scroll)="navbar_fixing()" [class.fixed-top]="fixed">
+<nav id="nav" class="navbar navbar-expand-lg" (scroll)="navbar_fixing()" [class.fixed-top]="fixed">
   <div class="container-fluid">
     <a class="navbar-brand" (click)="gotohome()">
       <i class="fa-solid fa-clapperboard"></i>
@@ -10,6 +10,7 @@
     <button
       class="navbar-toggler"
       type="button"
+      id="navbar-toggler"
       data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent"
@@ -21,19 +22,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a *ngIf="islogin" class="nav-link" routerLink="home">Home</a>
+          <a *ngIf="islogin" class="nav-link" on-click="another_click()" routerLink="home">Home</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="islogin" class="nav-link" routerLink="movies">Movies</a>
+          <a *ngIf="islogin" class="nav-link" on-click="another_click()" routerLink="movies">Movies</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="islogin" class="nav-link" routerLink="tvshows">TVShows</a>
+          <a *ngIf="islogin" class="nav-link" on-click="another_click()" routerLink="tvshows">TVShows</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="islogin" class="nav-link" routerLink="people">People</a>
+          <a *ngIf="islogin" class="nav-link" on-click="another_click()" routerLink="people">People</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="islogin" class="nav-link" routerLink="networks">Networks</a>
+          <a *ngIf="islogin" class="nav-link" on-click="another_click()" routerLink="networks">Networks</a>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -44,13 +45,13 @@
           <i class="fab fa-instagram"></i>
         </div>
         <li class="nav-item">
-          <a *ngIf="!islogin" class="nav-link" routerLink="login">login</a>
+          <a *ngIf="!islogin" class="nav-link" on-click="another_click()" routerLink="login">login</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="!islogin" class="nav-link" routerLink="register">register</a>
+          <a *ngIf="!islogin" class="nav-link" on-click="another_click()" routerLink="register">register</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="islogin" class="nav-link" (click)="logout()" routerLink="login">logout</a>
+          <a *ngIf="islogin" class="nav-link" on-click="another_click()" (click)="logout()" routerLink="login">logout</a>
         </li>
       </ul>
     </div>
